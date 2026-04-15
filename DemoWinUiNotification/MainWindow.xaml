@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="DemoWinUiNotification.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="DemoWinUiNotification">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Padding="20" RowSpacing="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Spacing="4">
+            <TextBlock Text="SignalR Notification Demo" FontSize="24" FontWeight="SemiBold" />
+            <TextBlock Text="Verbind via Azure Function (negotiate) en ontvang live berichten via Azure SignalR." Opacity="0.8" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     x:Name="FunctionBaseUrlTextBox"
+                     Header="Function base URL"
+                     PlaceholderText="https://[jouw-func-app].azurewebsites.net"
+                     Text="https://winui3demobackend.azurewebsites.net" />
+
+            <Button Grid.Column="1"
+                    Margin="0,24,0,0"
+                    Content="Verbind"
+                    Click="ConnectButton_Click" />
+
+            <Button Grid.Column="2"
+                    Margin="0,24,0,0"
+                    Content="Verbreek"
+                    Click="DisconnectButton_Click" />
+        </Grid>
+
+        <Border Grid.Row="2"
+                Padding="12"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                CornerRadius="8">
+            <TextBlock x:Name="StatusTextBlock"
+                       Text="Niet verbonden"
+                       TextWrapping="Wrap" />
+        </Border>
+
+        <Grid Grid.Row="3" ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0"
+                     x:Name="SenderNameTextBox"
+                     Header="Sender"
+                     Text="winui-client"
+                     PlaceholderText="bv. Rick" />
+
+            <TextBox Grid.Column="1"
+                     x:Name="TestMessageTextBox"
+                     Header="Testbericht"
+                     PlaceholderText="Hallo van WinUI" />
+
+            <Button Grid.Column="2"
+                    Margin="0,24,0,0"
+                    Content="Stuur via Function"
+                    Click="SendTestButton_Click" />
+        </Grid>
+
+        <ListView Grid.Row="4"
+                  x:Name="MessagesListView"
+                  Header="Ontvangen berichten" />
+    </Grid>
+</Window>

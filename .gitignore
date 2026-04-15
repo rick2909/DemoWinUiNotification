@@ -1,0 +1,24 @@
+# Visual Studio workspace artifacts
+.vs/
+
+# .NET build outputs
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet package artifacts
+*.nupkg
+*.snupkg
+
+# WinUI/MSIX packaging outputs
+**/AppPackages/
+**/BundleArtifacts/
+**/Generated Files/
+
+# Publish profile user settings
+**/*.pubxml.user

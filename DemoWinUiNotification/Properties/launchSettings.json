@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DemoWinUiNotification (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DemoWinUiNotification (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
